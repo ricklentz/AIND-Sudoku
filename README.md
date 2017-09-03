@@ -3,11 +3,17 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A: Solving the naked twins within a unit using constraint propagation requires identifying the twins and then removing their values as possibilities from the non-twins.  
+
+One implementation approach is to loop through the units for boxes that have a length of probable values equaling two.  If another box shares these and only these same values, the two boxes are considered naked twins.  The remainder of the algorithm is implemented by covering the non-twins within the same unit and removing the twin's values from the non-twins list of probable values.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: Constraint propagation solves the diagonal sudoku puzzles through three algorithms.  The first is the elimination of single values from all its peers.   The second is extracts the values that are the only choice for a given box.  The third used naked twins within a unit of peers to remove cumulative probabilities of 100% from the remaining boxes in that unit.  Finally, a depth first search is used to branch on the minimum length boxes, instancing a parallel copy of the game with the range of possible guesses, until it finds the correct solution.  
+
+Appending the diagonals to the list of units and peers was straight forward.  This way, while implementing constraint propagation, diagonals are treated the same as any other unit. 
+
+A minor modification was needed to the depth first search, only choice, naked twins, and eliminate function definitions to complete the diagonal sudoku implementation.  
 
 ### Install
 
